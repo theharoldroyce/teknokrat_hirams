@@ -12,6 +12,14 @@ import {
   PieChart,
   Settings2,
   SquareTerminal,
+  BriefcaseBusiness,
+  PackageSearch,
+  UserStar,
+  CreditCard,
+  Target,
+  ReceiptText,
+  UserCog,
+  LayoutDashboard
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -29,7 +37,7 @@ import {
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
+    name: "Ryan Arago",
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
@@ -52,9 +60,9 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
+      title: "Dashboard",
       url: "#",
-      icon: SquareTerminal,
+      icon: LayoutDashboard,
       isActive: true,
       items: [
         {
@@ -72,9 +80,9 @@ const data = {
       ],
     },
     {
-      title: "Models",
+      title: "Company Management",
       url: "#",
-      icon: Bot,
+      icon: BriefcaseBusiness,
       items: [
         {
           title: "Genesis",
@@ -91,9 +99,9 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
+      title: "Supplier Management",
       url: "#",
-      icon: BookOpen,
+      icon: PackageSearch,
       items: [
         {
           title: "Introduction",
@@ -114,9 +122,101 @@ const data = {
       ],
     },
     {
-      title: "Settings",
+      title: "Client Management",
       url: "#",
-      icon: Settings2,
+      icon: UserStar,
+      items: [
+        {
+          title: "General",
+          url: "#",
+        },
+        {
+          title: "Team",
+          url: "#",
+        },
+        {
+          title: "Billing",
+          url: "#",
+        },
+        {
+          title: "Limits",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Bank Account Management",
+      url: "#",
+      icon: CreditCard,
+      items: [
+        {
+          title: "General",
+          url: "#",
+        },
+        {
+          title: "Team",
+          url: "#",
+        },
+        {
+          title: "Billing",
+          url: "#",
+        },
+        {
+          title: "Limits",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Competitor Management",
+      url: "#",
+      icon: Target,
+      items: [
+        {
+          title: "General",
+          url: "#",
+        },
+        {
+          title: "Team",
+          url: "#",
+        },
+        {
+          title: "Billing",
+          url: "#",
+        },
+        {
+          title: "Limits",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Transaction Management",
+      url: "#",
+      icon: ReceiptText,
+      items: [
+        {
+          title: "General",
+          url: "#",
+        },
+        {
+          title: "Team",
+          url: "#",
+        },
+        {
+          title: "Billing",
+          url: "#",
+        },
+        {
+          title: "Limits",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "User Management",
+      url: "#",
+      icon: UserCog,
       items: [
         {
           title: "General",
@@ -166,7 +266,7 @@ export function AppSidebar({
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
