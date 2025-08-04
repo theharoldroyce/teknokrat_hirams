@@ -21,14 +21,14 @@ export function LoginForm({
               <span className="sr-only">Acme Inc.</span>
             </a>
             <h1 className="text-xl font-bold">Welcome to Acme Inc.</h1>
-           /* 
+       
            <div className="text-center text-sm">
               Don&apos;t have an account?{" "}
               <a href="#" className="underline underline-offset-4">
                 Sign up
               </a>
             </div>
-            */
+        
           </div>
           <div className="flex flex-col gap-6">
             <div className="grid gap-3">
