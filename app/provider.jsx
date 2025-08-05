@@ -1,4 +1,6 @@
 'use client';
+
+import { NavigationProgress } from '@/components/navigation-progress';
 // import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from './theme-provider';
 
@@ -6,6 +8,7 @@ export default function Providers({ children }) {
   return (
     <>
       {/* <Toaster /> */}
+      <NavigationProgress />
       <ThemeProvider
         attribute="class"
         defaultTheme="system"
