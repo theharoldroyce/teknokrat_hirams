@@ -80,7 +80,7 @@ const data = {
       ],
     },
     {
-      title: 'Company Management',
+      title: 'Company',
       url: '#',
       icon: BriefcaseBusiness,
       items: [
@@ -99,7 +99,7 @@ const data = {
       ],
     },
     {
-      title: 'Supplier Management',
+      title: 'Supplier',
       url: '#',
       icon: PackageSearch,
       items: [
@@ -122,7 +122,7 @@ const data = {
       ],
     },
     {
-      title: 'Client Management',
+      title: 'Clients',
       url: '#',
       icon: UserStar,
       items: [
@@ -145,7 +145,7 @@ const data = {
       ],
     },
     {
-      title: 'Bank Account Management',
+      title: 'Bank Accounts',
       url: '#',
       icon: CreditCard,
       items: [
@@ -168,7 +168,7 @@ const data = {
       ],
     },
     {
-      title: 'Competitor Management',
+      title: 'Competitors',
       url: '#',
       icon: Target,
       items: [
@@ -191,7 +191,7 @@ const data = {
       ],
     },
     {
-      title: 'Transaction Management',
+      title: 'Transactions',
       url: '#',
       icon: ReceiptText,
       items: [
@@ -214,27 +214,27 @@ const data = {
       ],
     },
     {
-      title: 'User Management',
-      url: '#',
+      title: 'Users',
+      url: '/dashboard/admin/users',
       icon: UserCog,
-      items: [
-        {
-          title: 'General',
-          url: '#',
-        },
-        {
-          title: 'Team',
-          url: '#',
-        },
-        {
-          title: 'Billing',
-          url: '#',
-        },
-        {
-          title: 'Limits',
-          url: '#',
-        },
-      ],
+      // items: [
+      //   {
+      //     title: 'General',
+      //     url: '#',
+      //   },
+      //   {
+      //     title: 'Team',
+      //     url: '#',
+      //   },
+      //   {
+      //     title: 'Billing',
+      //     url: '#',
+      //   },
+      //   {
+      //     title: 'Limits',
+      //     url: '#',
+      //   },
+      // ],
     },
   ],
   projects: [
