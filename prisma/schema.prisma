@@ -1,0 +1,159 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tblclients {
+  nClientId         Int     @id @default(autoincrement())
+  strClientName     String  @db.VarChar(100)
+  strClientNickName String  @db.VarChar(25)
+  strTIN            String? @db.VarChar(15)
+  strAddress        String? @db.VarChar(200)
+  strBusinessStyle  String? @db.VarChar(20)
+  strContactPerson  String? @db.VarChar(40)
+  strContactNumber  String? @db.VarChar(50)
+}
+
+model tblcompanies {
+  nCompanyId         Int     @id @default(autoincrement())
+  strCompanyName     String  @db.VarChar(50)
+  strCompanyNickName String  @db.VarChar(20)
+  strTIN             String? @db.VarChar(15)
+  strAddress         String? @db.VarChar(200)
+  bVAT               Boolean
+  bEWT               Boolean
+}
+
+model tbldirectcosts {
+  nDirectCostId  Int    @id @default(autoincrement())
+  nTransactionId Int
+  strName        String @db.VarChar(20)
+  dAmount        Float
+
+  @@unique([nTransactionId, strName], map: "nTransactionId")
+}
+
+model tblitempricings {
+  nItemPriceId       Int   @id @default(autoincrement())
+  nPricingSetId      Int
+  nTransactionItemId Int
+  dUnitSellingPrice  Float
+}
+
+model tblpricingsets {
+  nPricingSetId  Int     @id @default(autoincrement())
+  nTransactionId Int
+  strName        String  @db.VarChar(20)
+  bChosen        Boolean
+
+  @@unique([nTransactionId, strName], map: "nTransactionId")
+}
+
+model tblpurchaseoptions {
+  nPurchaseOptionId  Int       @id @default(autoincrement())
+  nTransactionItemId Int
+  nSupplierId        Int
+  nQuantity          Int
+  strUOM             String    @db.VarChar(20)
+  strBrand           String?   @db.VarChar(30)
+  strModel           String?   @db.VarChar(40)
+  strSpecs           String?   @db.VarChar(200)
+  dUnitPrice         Float
+  dEWT               Float?
+  strProductCode     String?   @db.VarChar(30)
+  bIncluded          Boolean
+  dtCanvass          DateTime? @db.DateTime(0)
+}
+
+model tblsqlerrors {
+  nErrorId Int      @id @default(autoincrement())
+  dtDate   DateTime @db.DateTime(0)
+  strError String   @db.VarChar(1000)
+}
+
+model tblsupplierbanks {
+  nSupplierBankId  Int    @id @default(autoincrement())
+  nSupplierId      Int
+  strBankName      String @db.VarChar(50)
+  strAccountName   String @db.VarChar(100)
+  strAccountNumber String @db.VarChar(50)
+}
+
+model tblsuppliercontacts {
+  nSupplierContactId Int     @id @default(autoincrement())
+  nSupplierId        Int
+  strName            String  @db.VarChar(50)
+  strNumber          String  @db.VarChar(50)
+  strPosition        String? @db.VarChar(50)
+  strDepartment      String? @db.VarChar(50)
+}
+
+model tblsuppliers {
+  nSupplierId         Int     @id @default(autoincrement())
+  strSupplierName     String  @db.VarChar(100)
+  strSupplierNickName String  @db.VarChar(25)
+  strAddress          String? @db.VarChar(200)
+  strTIN              String? @db.VarChar(20)
+  bVAT                Boolean
+  bEWT                Boolean
+}
+
+model tbltransactionhistories {
+  nTransactionHistoryId Int      @id @default(autoincrement())
+  nTransactionId        Int
+  dtOccur               DateTime @db.DateTime(0)
+  nStatus               Int
+  nUserId               Int?
+  strRemarks            String?  @db.VarChar(200)
+  bValid                Boolean
+}
+
+model tbltransactionitems {
+  nTransactionItemId Int     @id @default(autoincrement())
+  nTransactionId     Int
+  nItemNumber        Int
+  nQuantity          Int
+  strUOM             String  @db.VarChar(10)
+  strName            String  @db.VarChar(200)
+  strSpecs           String? @db.VarChar(2000)
+  dUnitABC           Float?
+
+  @@unique([nTransactionId, nItemNumber], map: "nTransactionId")
+}
+
+model tbltransactions {
+  nTransactionId         Int       @id @default(autoincrement())
+  nCompanyId             Int?
+  nClientId              Int
+  nAssignedAO            Int?
+  strTitle               String    @db.VarChar(500)
+  strRefNumber           String?   @db.VarChar(30)
+  dTotalABC              Float?
+  cProcMode              String?   @db.Char(1)
+  cItemType              String    @db.Char(1)
+  strCode                String?   @db.VarChar(30)
+  cProcSource            String?   @db.Char(1)
+  cProcStatus            String?   @db.Char(1)
+  dtPreBid               DateTime? @db.DateTime(0)
+  strPreBid_Venue        String?   @db.VarChar(70)
+  dtDocIssuance          DateTime? @db.DateTime(0)
+  strDocIssuance_Venue   String?   @db.VarChar(70)
+  dtDocSubmission        DateTime? @db.DateTime(0)
+  strDocSubmission_Venue String?   @db.VarChar(70)
+  dtDocOpening           DateTime? @db.DateTime(0)
+  strDocOpening_Venue    String?   @db.VarChar(70)
+}
+
+model tblusers {
+  nUserId     Int     @id @default(autoincrement())
+  strFName    String  @db.VarChar(50)
+  strMName    String? @db.VarChar(50)
+  strLName    String  @db.VarChar(50)
+  strNickName String  @db.VarChar(20)
+  cUserType   String  @db.Char(1)
+  cStatus     String  @db.Char(1)
+}

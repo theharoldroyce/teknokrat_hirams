@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/sidebar';
 import { useHref } from '@/hooks/use-href';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export function NavMain({ items }) {
   return (
@@ -96,13 +97,13 @@ export function NavGroup({ title, items }) {
 
 const SidebarMenuLink = ({ item, href }) => {
   const { setOpenMobile } = useSidebar();
+  const [isActive, setIsActive] = useState(false);
+  useEffect(() => {
+    setIsActive(checkIsActive(href, item));
+  }, [href, item]);
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton
-        asChild
-        isActive={checkIsActive(href, item)}
-        tooltip={item.title}
-      >
+      <SidebarMenuButton asChild isActive={isActive} tooltip={item.title}>
         <Link href={item.url} onClick={() => setOpenMobile(false)}>
           {item.icon && <item.icon />}
           <span>{item.title}</span>
