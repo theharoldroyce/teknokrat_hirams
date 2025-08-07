@@ -1,14 +1,14 @@
 'use client';
 
-import { NavigationProgress } from '@/components/navigation-progress';
 // import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from './theme-provider';
+import NextTopLoader from 'nextjs-toploader';
 
 export default function Providers({ children }) {
   return (
     <>
       {/* <Toaster /> */}
-      <NavigationProgress />
+      <NextTopLoader showSpinner={false} />
       <ThemeProvider
         attribute="class"
         defaultTheme="system"
